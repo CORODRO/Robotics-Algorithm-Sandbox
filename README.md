@@ -20,3 +20,5 @@ Examples of preliminary ROS CODES:
 Examples of simple AI algorithms --> AI General
 
 Examples of a better implemented DWA --> DWA Recursive
+
+Examples of simple path planning and SLAM algorithm not directly used --> Navigation and PathPlanning Codes not Used

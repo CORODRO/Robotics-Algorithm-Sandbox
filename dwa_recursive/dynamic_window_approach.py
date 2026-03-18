@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue May 26 10:07:32 2020
-
-@author: Jasmine Rimani
-Objective: Refine the trajectory from A_start waypoints
-from: https://github.com/AtsushiSakai/PythonRobotics/blob/master/PathPlanning/DynamicWindowApproach/dynamic_window_approach.py
-Dynamic Window Approach
-"""
+"""Experimental Dynamic Window Approach local planner combined with a grid-based global plan."""
 
 import math
 # Enum is a class in python for creating enumerations, which are a set of symbolic names (members) bound to unique, constant values
@@ -15,13 +8,13 @@ from enum import Enum
 import matplotlib.pyplot as plt
 import numpy as np
 
-from expand_array import expand_array
-from insert_open import insert_open
-from mapgenerator import mapgenerator
-from min_fn import min_fn
-from node_index import node_index
-from visual_path import visual_path
-#import DWA as dwa
+from expand_open_neighbors import expand_array
+from insert_open_list import insert_open
+from generate_test_map import mapgenerator
+from select_lowest_cost_node import min_fn
+from find_node_index import node_index
+from plot_path import visual_path
+# import dynamic_window_approach as dwa
 
 
 def ast( start_dot = np.array([0, 0, 0 , 0.0, 0.0]), target_dot = np.array([0, 5])):

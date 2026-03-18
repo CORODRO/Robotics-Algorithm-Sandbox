@@ -2,6 +2,8 @@
 
 Teaching-oriented archive of prototype scripts, robotics experiments, and algorithm exercises that informed the CORODRO project. This repository is the right place to learn ideas quickly without loading the full mission stack.
 
+The filenames in this repo have been normalized to descriptive `snake_case` names so students can understand the intent of a script before opening it.
+
 ## Added Value
 
 - Small scripts that are easier to read than the mission code.
@@ -32,13 +34,13 @@ Teaching-oriented archive of prototype scripts, robotics experiments, and algori
 
 ## Top-Level Script Guide
 
-- `Cv_bridge_demo.py`: converts depth-camera data into a colorized DEM-style visualization.
-- `Fake_localization_node_for_ROS.py`: publishes simple localization information for navigation tests.
-- `Fake_mapper_node_ROS.py`: lightweight fake map publisher for planner testing.
-- `First_teleop_code_implemented_in_python.py`: early teleoperation experiment.
-- `create_map_ROS.py`: lidar-to-occupancy-map prototype.
-- `laserscan_from_git_used_to_create_ROS_Map.py`: supporting lidar mapping script.
-- `ros2opencv2.py`: wrapper between ROS image topics and OpenCV processing.
+- `depth_camera_cv_bridge_demo.py`: converts depth-camera data into a colorized DEM-style visualization.
+- `fake_localization_node.py`: publishes simple localization information for navigation tests.
+- `fake_mapper_node.py`: lightweight fake map publisher for planner testing.
+- `keyboard_teleop_experiment.py`: early teleoperation experiment.
+- `lidar_occupancy_map_builder.py`: lidar-to-occupancy-map prototype.
+- `lidar_scan_to_occupancy_grid.py`: supporting lidar mapping script.
+- `ros_image_to_opencv_bridge.py`: wrapper between ROS image topics and OpenCV processing.
 
 ## Notes For Students
 

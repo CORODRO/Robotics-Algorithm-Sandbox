@@ -1,3 +1,5 @@
+"""Helper that returns the array index of a node stored in the open list."""
+
 def node_index(OPEN,xval,yval):
     #This function returns the index of the location of a node in the list OPEN
     i = 0

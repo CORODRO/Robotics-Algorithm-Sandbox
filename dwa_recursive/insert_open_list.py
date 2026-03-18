@@ -1,3 +1,5 @@
+"""Utility for packaging node data before inserting it into the A* open list."""
+
 def insert_open(xNode,yNode,xPar,yPar,h,g,f):
 #This function is used to add a node to the OPEN list.
 #The OPEN list is structured as follows:

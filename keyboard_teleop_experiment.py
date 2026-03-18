@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+"""Early keyboard teleoperation experiment for manually driving the rover with ROS velocity commands."""
+
 # Import libraries
 import rospy
 import curses

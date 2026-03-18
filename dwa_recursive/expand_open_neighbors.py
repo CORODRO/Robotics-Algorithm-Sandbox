@@ -1,3 +1,5 @@
+"""Helper functions for expanding neighboring nodes in the grid-search open list."""
+
 from numpy import vstack
 from numpy import zeros
 from numpy import shape

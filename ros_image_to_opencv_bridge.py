@@ -1,29 +1,5 @@
 #!/usr/bin/env python
-
-""" ros2opencv2.py - Version 1.1 2013-12-20
-    A ROS-to-OpenCV node that uses cv_bridge to map a ROS image topic and optionally a ROS
-    depth image topic to the equivalent OpenCV image stream(s).
-    
-    Includes variables and helper functions to store detection and tracking information and display
-    markers on the image.
-    
-    Creates an ROI publisher to publish the region of interest on the /roi topic.
-    
-    Created for the Pi Robot Project: http://www.pirobot.org
-    Copyright (c) 2011 Patrick Goebel.  All rights reserved.
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-    
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details at:
-    
-    http://www.gnu.org/licenses/gpl.html
-      
-"""
+"""Reusable ROS-to-OpenCV bridge for subscribing to image topics and exposing them to OpenCV workflows."""
 
 import rospy
 import cv2
@@ -386,7 +362,7 @@ class ROS2OpenCV2(object):
 
 def main(args):    
     try:
-        node_name = "ros2opencv2"
+        node_name = "ros_image_to_opencv_bridge"
         ROS2OpenCV2(node_name)
         rospy.spin()
     except KeyboardInterrupt:

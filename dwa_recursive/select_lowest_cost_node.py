@@ -1,3 +1,5 @@
+"""Helper for selecting the lowest-cost node from the A* open list."""
+
 from numpy import zeros
 from numpy import vstack
 from numpy import shape

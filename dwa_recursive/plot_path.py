@@ -1,3 +1,5 @@
+"""Utility for printing and visualizing the resulting grid path on the test map."""
+
 from numpy import shape
 
 def visual_path(start,map,Optimal_path):

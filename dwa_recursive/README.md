@@ -4,8 +4,8 @@ Experimental local-planning sandbox for combining Dynamic Window Approach ideas 
 
 ## What Is In Here
 
-- `DWA.py`: local planner experiment.
-- `Astar.py`: grid-based global planner support.
+- `dynamic_window_approach.py`: local planner experiment.
+- `a_star_planner.py`: grid-based global planner support.
 - helper modules for node expansion, map generation, scoring, and path visualization.
 
 ## Algorithms Used

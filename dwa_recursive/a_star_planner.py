@@ -1,12 +1,14 @@
+"""Grid-based A* planning helper used by the dynamic-window experiment."""
+
 import numpy as np
 
-from expand_array import expand_array
-from insert_open import insert_open
-from mapgenerator import mapgenerator
-from min_fn import min_fn
-from node_index import node_index
-from visual_path import visual_path
-#import DWA as dwa
+from expand_open_neighbors import expand_array
+from insert_open_list import insert_open
+from generate_test_map import mapgenerator
+from select_lowest_cost_node import min_fn
+from find_node_index import node_index
+from plot_path import visual_path
+# import dynamic_window_approach as dwa
 
 
 def ast( start = np.array([0, 0]), target = np.array([9, 9]) ):

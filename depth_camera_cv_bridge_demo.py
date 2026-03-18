@@ -11,7 +11,7 @@ import numpy as np #OpenCv uses np to do the image processing
 
 class cvBridgeDemo():
     def __init__(self):
-        self.node_name = "cv_bridge_demo"
+        self.node_name = "depth_camera_cv_bridge_demo"
         
         rospy.init_node(self.node_name)
         
@@ -44,8 +44,9 @@ class cvBridgeDemo():
         # Use cv_bridge() to convert the ROS image to OpenCV format
         try:
             frame = self.bridge.imgmsg_to_cv2(ros_image, "bgr8")
-        except CvBridgeError, e:
-            print e
+        except CvBridgeError as e:
+            print(e)
+            return
         
         # Convert the image to a numpy array since most cv2 functions
         # require numpy arrays.
@@ -70,8 +71,9 @@ class cvBridgeDemo():
         try:
             # Convert the depth image using the default passthrough encoding
             depth_image = self.bridge.imgmsg_to_cv2(ros_image, "passthrough")
-        except CvBridgeError, e:
-            print e
+        except CvBridgeError as e:
+            print(e)
+            return
 
         # Convert the depth image to a Numpy array since most cv2 functions require Numpy arrays.
         depth_array = np.array(depth_image, dtype=np.float32)
@@ -102,16 +104,16 @@ class cvBridgeDemo():
         return frame
     
     def cleanup(self):
-        print "Shutting down vision node."
-        cv2.destroyAllWindows()   
+        print("Shutting down vision node.")
+        cv2.destroyAllWindows()
     
 def main(args):       
     try:
         cvBridgeDemo()
         rospy.spin()
     except KeyboardInterrupt:
-        print "Shutting down vision node."
-        cv2.DestroyAllWindows()
+        print("Shutting down vision node.")
+        cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     main(sys.argv)

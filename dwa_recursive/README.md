@@ -6,7 +6,12 @@ Experimental local-planning sandbox for combining Dynamic Window Approach ideas 
 
 - `dynamic_window_approach.py`: local planner experiment.
 - `a_star_planner.py`: grid-based global planner support.
-- helper modules for node expansion, map generation, scoring, and path visualization.
+- `expand_open_neighbors.py`: grid-neighbor expansion helper.
+- `insert_open_list.py`: helper for building A* open-list entries.
+- `generate_test_map.py`: simple map generator for planner experiments.
+- `select_lowest_cost_node.py`: helper for choosing the next A* node.
+- `find_node_index.py`: utility for locating nodes in the open list.
+- `plot_path.py`: text-based path-visualization helper.
 
 ## Algorithms Used
 

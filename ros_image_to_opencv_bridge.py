@@ -64,7 +64,11 @@ class ROS2OpenCV2(object):
         self.cv_window_name = self.node_name
         cv.namedWindow(self.cv_window_name, cv2.WINDOW_AUTOSIZE)
         if self.resize_window_height > 0 and self.resize_window_width > 0:
-            cv.ResizeWindow(self.cv_window_name, self.resize_window_width, self.resize_window_height)
+            cv2.resizeWindow(
+                self.cv_window_name,
+                self.resize_window_width,
+                self.resize_window_height,
+            )
 
         # Create the cv_bridge object
         self.bridge = CvBridge()
@@ -172,7 +176,7 @@ class ROS2OpenCV2(object):
                     cv2.rectangle(self.display_image, pt1, pt2, cv2.COLOR_BGR2RGB, self.feature_size, 8, 0)
                 else:
                     # Otherwise, display a rotated rectangle
-                    vertices = np.int0(cv2.cv.BoxPoints(self.track_box))
+                    vertices = np.int0(cv2.boxPoints(self.track_box))
                     cv2.drawContours(self.display_image, [vertices], 0, cv2.COLOR_BGR2RGB, self.feature_size)
 
             # If we don't yet have a track box, display the detect box if present
@@ -252,8 +256,9 @@ class ROS2OpenCV2(object):
         try:
             cv_image = self.bridge.imgmsg_to_cv2(ros_image, "bgr8")       
             return np.array(cv_image, dtype=np.uint8)
-        except CvBridgeError, e:
-            print e
+        except CvBridgeError as e:
+            print(e)
+            return None
           
     def convert_depth_image(self, ros_image):
         # Use cv_bridge() to convert the ROS image to OpenCV format
@@ -265,8 +270,9 @@ class ROS2OpenCV2(object):
             
             return depth_image
         
-        except CvBridgeError, e:
-            print e
+        except CvBridgeError as e:
+            print(e)
+            return None
             
     def publish_roi(self):
         if not self.drag_start:
@@ -357,8 +363,8 @@ class ROS2OpenCV2(object):
         return list(box2d)
         
     def cleanup(self):
-        print "Shutting down vision node."
-        cv2.destroyAllWindows()       
+        print("Shutting down vision node.")
+        cv2.destroyAllWindows()
 
 def main(args):    
     try:
@@ -366,8 +372,8 @@ def main(args):
         ROS2OpenCV2(node_name)
         rospy.spin()
     except KeyboardInterrupt:
-        print "Shutting down ros2opencv node."
-        cv.DestroyAllWindows()
+        print("Shutting down ros2opencv node.")
+        cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     main(sys.argv)

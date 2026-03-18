@@ -21,7 +21,7 @@ LIN_VEL_STEP_SIZE = 0.01
 ANG_VEL_STEP_SIZE = 0.1
 
 msg = """
-Control Your TurtleBot3!
+Control Your Rover!
 ---------------------------
 Moving around:
         w
@@ -103,37 +103,37 @@ if __name__=="__main__":
     control_angular_vel = 0.0
 
     try:
-        print msg
+        print(msg)
         while(1):
             key = getKey()
             if key == 'w' :
                 target_linear_vel = checkLinearLimitVelocity(target_linear_vel + LIN_VEL_STEP_SIZE)
                 status = status + 1
-                print vels(target_linear_vel,target_angular_vel)
+                print(vels(target_linear_vel,target_angular_vel))
             elif key == 'x' :
                 target_linear_vel = checkLinearLimitVelocity(target_linear_vel - LIN_VEL_STEP_SIZE)
                 status = status + 1
-                print vels(target_linear_vel,target_angular_vel)
+                print(vels(target_linear_vel,target_angular_vel))
             elif key == 'a' :
                 target_angular_vel = checkAngularLimitVelocity(target_angular_vel + ANG_VEL_STEP_SIZE)
                 status = status + 1
-                print vels(target_linear_vel,target_angular_vel)
+                print(vels(target_linear_vel,target_angular_vel))
             elif key == 'd' :
                 target_angular_vel = checkAngularLimitVelocity(target_angular_vel - ANG_VEL_STEP_SIZE)
                 status = status + 1
-                print vels(target_linear_vel,target_angular_vel)
+                print(vels(target_linear_vel,target_angular_vel))
             elif key == ' ' or key == 's' :
                 target_linear_vel   = 0.0
                 control_linear_vel  = 0.0
                 target_angular_vel  = 0.0
                 control_angular_vel = 0.0
-                print vels(target_linear_vel, target_angular_vel)
+                print(vels(target_linear_vel, target_angular_vel))
             else:
                 if (key == '\x03'):
                     break
 
             if status == 20 :
-                print msg
+                print(msg)
                 status = 0
 
             twist = Twist()
@@ -146,8 +146,8 @@ if __name__=="__main__":
 
             pub.publish(twist)
 
-    except:
-        print e
+    except Exception as exc:
+        print(exc)
 
     finally:
         twist = Twist()
@@ -157,4 +157,3 @@ if __name__=="__main__":
 
     if os.name != 'nt':
         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
-
